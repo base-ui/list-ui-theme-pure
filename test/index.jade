@@ -8,5 +8,8 @@ html
     script(src="../build/build.js")
     script
       var List = require('list');
+
       var data = ['apple', 'banana', 'peach', 'orange', 'melon'];
-      document.body.appendChild(new List(data));
+      var list = new List(data);
+
+      document.body.appendChild(list);
