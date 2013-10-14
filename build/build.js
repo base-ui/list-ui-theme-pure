@@ -10259,16 +10259,51 @@ var $ = require('jquery');
 var Li = require('./li');
 var tpl = require('../tpl/list');
 
-module.exports = function List(data) {
+module.exports = function List(dataArray) {
   var el = $(tpl)[0];
+  var items = [];
 
   var list = function () {
-    for (var index in data) {
-      append(new Li(index, data[index]));
+    this.property = function (name, defines) {
+      Object.defineProperty(this, name, defines);
     }
+
+    this.property('multiple', {
+      get: function () {
+        return $(el).hasClass('multiple') ? true : false;
+      },
+
+      set: function (value) {
+        if (value === this.multiple) return;
+        if (value === true) $(el).addClass('multiple');
+        if (value === false) $(el).removeClass('multiple');
+      }
+    });
 
     return this;
   }.call(el);
+
+  dataArray.forEach(function (data, index) {
+    var li = new Li(index, data);
+
+    items.push(li)
+    append(li);
+
+    li.on('select', function () {
+      if (list.multiple) return;
+
+      items.forEach(function (item, index) {
+        if (item === li) return;
+        item.deselect();
+      });
+    });
+
+    li.on('destroy', function () {
+      items.forEach(function (item, index) {
+        if (item === li) items.splice(index, 1);
+      });
+    });
+  });
 
   function append(li) {
     return el.appendChild(li.el);
@@ -10276,6 +10311,10 @@ module.exports = function List(data) {
 
   function prepend(li) {
     return el.insertBefore(li.el, el.firstChild);
+  }
+
+  list.item = function (index) {
+    return items[index];
   }
 
   return list;
@@ -10291,9 +10330,10 @@ module.exports = function Li(index, data) {
   var el = $(tpl)[0];
 
   var li = function () {
+    this.index = index;
+    this.active = false;
     this.el = el;
     this.el.textContent = data;
-    this.active = false;
 
     this.property = function (name, defines) {
       Object.defineProperty(this, name, defines);
@@ -10348,6 +10388,11 @@ module.exports = function Li(index, data) {
   li.deselect = function () {
     $(this.el).removeClass('selected');
     this.trigger('deselect');
+  }
+
+  li.destroy = function () {
+    this.parentNode.removeChild(this.el);
+    this.trigger('destroy');
   }
 
   return li;
