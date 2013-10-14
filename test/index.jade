@@ -1,0 +1,12 @@
+doctype 5
+html
+  head
+    title Test
+    link(rel="stylesheet", href="../build/build.css")
+
+  body
+    script(src="../build/build.js")
+    script
+      var List = require('list');
+      var data = ['apple', 'banana', 'peach', 'orange', 'melon'];
+      document.body.appendChild(new List(data));

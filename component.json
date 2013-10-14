@@ -1,0 +1,15 @@
+{
+  "name": "list-theme-pure",
+  "repo": "shallker/list-theme-pure",
+  "description": "A pure color set for list",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "shallker/list": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "styles": [
+    "css/list-theme-pure.css"
+  ]
+}
