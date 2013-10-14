@@ -1,7 +1,7 @@
 
 # list-theme-pure
 
-  A pure color set for list
+  A Github color set for list
 
 ## Installation
 
