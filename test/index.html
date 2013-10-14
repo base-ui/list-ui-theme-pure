@@ -2,14 +2,18 @@
 <html>
   <head>
     <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../build/build.css">
   </head>
   <body>
     <script src="../build/build.js"></script>
     <script>
       var List = require('list');
+      
       var data = ['apple', 'banana', 'peach', 'orange', 'melon'];
-      document.body.appendChild(new List(data));
+      var list = new List(data);
+      
+      document.body.appendChild(list);
     </script>
   </body>
 </html>
