@@ -15,6 +15,9 @@
   padding: 5px 10px;
   border-bottom: 1px solid #ddd;
 }
+.component.list >.li.active {
+  background-color: #fafafa;
+}
 .component.list >.li.selected {
   color: #fff;
   background-color: #4183c4;
