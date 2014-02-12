@@ -1,3 +1,14 @@
+.ui.list {
+  margin: 0;
+}
+.ui.list.inline {
+  list-style: none;
+}
+.ui.list.inline >* {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 .component.list {
   background-color: #fff;
   border: 1px solid #ddd;
