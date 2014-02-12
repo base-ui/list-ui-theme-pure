@@ -1,5 +1,5 @@
 
-# list-theme-pure
+# list-ui-theme-pure
 
   A Github color set for list
 
@@ -7,11 +7,11 @@
 
   Install with [component(1)](http://component.io):
 
-    $ component install shallker/list-theme-pure
+    $ component install base-ui/list-ui-theme-pure
 
 
 ## Test
-  http://shallker.github.io/list-theme-pure/test   
+  http://base-ui.github.io/list-ui-theme-pure/test   
 
 
 ## License

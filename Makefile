@@ -1,5 +1,5 @@
 
-build: components css/list-theme-pure.css
+build: components css/list-ui-theme-pure.css
 	@component build
 	@touch build/done
 	@rm build/done
@@ -8,7 +8,7 @@ build: components css/list-theme-pure.css
 all: stylus build
 	@echo all done
 
-css/list-theme-pure.css: css/src/list-theme-pure.styl
+css/list-ui-theme-pure.css: css/src/list-ui-theme-pure.styl
 	@stylus --out css $<
 
 components: component.json

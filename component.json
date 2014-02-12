@@ -1,15 +1,15 @@
 {
-  "name": "list-theme-pure",
-  "repo": "shallker/list-theme-pure",
+  "name": "list-ui-theme-pure",
+  "repo": "base-ui/list-ui-theme-pure",
   "description": "A pure color set for list",
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "shallker/list": "*"
+    "base-ui/list": "*"
   },
   "development": {},
   "license": "MIT",
   "styles": [
-    "css/list-theme-pure.css"
+    "css/list-ui-theme-pure.css"
   ]
 }
